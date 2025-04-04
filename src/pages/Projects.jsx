@@ -9,7 +9,7 @@ const ProjectsSection = () => {
       description: "Shop shoes faster with smart filters (color, price, brand), quick search, and add-to-cart. Works perfectly on any device.",
       tags: ["Html", "CSS", "JavaScript" , "Web Development" , "responsive"],
       github: "https://github.com/muskannarang12/shoe-web",
-      media: "/videos/e-commerce.mp4",
+      media: "/videos/shoes_web.png",
       demo: "https://ecommerce-demo.com"
     },
     {
