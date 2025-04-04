@@ -4,17 +4,29 @@ import { SiFiverr } from 'react-icons/si';
 
 export default function Contact() {
   return (
-    <section id="contact"   className="min-h-screen bg-black text-white  px-4 sm:px-8 flex items-center">
+    <section id="contact" className="min-h-screen bg-black text-white px-4 sm:px-8 flex items-center">
       <div className="w-full max-w-6xl mx-auto">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-[#FF0099] mb-12 font-mono text-center"
+          className="text-4xl md:text-5xl font-bold text-[#FF0099] mb-6 font-mono text-center"
         >
           Get In Touch
         </motion.h2>
+
+        {/* Availability Message */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="text-gray-300 font-mono text-lg text-center mb-12 max-w-2xl mx-auto"
+        >
+          I'm available for freelance projects and full-time opportunities. 
+          Feel free to reach out for collaborations, inquiries, or just a tech chat!
+        </motion.p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
@@ -82,7 +94,7 @@ export default function Contact() {
                 
                 <div className="flex items-center gap-4 text-gray-300">
                   <FaMapMarkerAlt className="text-[#FF0099] text-xl" />
-                  <p className="font-mono">Sukkur, Pakistan</p>
+                  <p className="font-mono">Karachi, Pakistan</p>
                 </div>
               </div>
             </div>
