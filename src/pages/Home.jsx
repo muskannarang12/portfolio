@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
@@ -36,10 +35,11 @@ export default function Hero() {
   const [displayIm, setDisplayIm] = useState('');
   const [displayRole, setDisplayRole] = useState('');
   const fullText = "Hello there! I'm";
-  const fullName = "Muskan Narang";
+  const fullName = "Muskan  Narang";
   const imText = "I'm";
   const [currentRole, setCurrentRole] = useState(0);
-  const roles = ["Full Stack Developer", "Web Developer"];
+  const roles = ["Frontend Developer", "Backend Developer", "Full Stack Developer"];
+  const tagline = ", passionate about crafting beautiful & functional websites";
   const colors = ["#FF0080", "#7928CA", "#FF4D4D", "#F9CB28"];
   const [confetti, setConfetti] = useState([]);
   const containerRef = useRef(null);
@@ -72,9 +72,7 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Combined animation starter
   useEffect(() => {
-    // Left side animation
     let i = 0;
     const leftTyping = setInterval(() => {
       if (i < fullText.length) {
@@ -83,20 +81,20 @@ export default function Hero() {
       } else {
         clearInterval(leftTyping);
         let j = 0;
-        const nameLines = fullName.split('\n');
-        let currentLine = 0;
+        const nameParts = fullName.split(' ');
+        let currentPart = 0;
         let currentText = '';
         const nameTyping = setInterval(() => {
-          if (currentLine < nameLines.length) {
-            if (j < nameLines[currentLine].length) {
-              currentText += nameLines[currentLine][j];
-              setDisplayName(currentText + (currentLine < nameLines.length - 1 ? '\n' : ''));
+          if (currentPart < nameParts.length) {
+            if (j < nameParts[currentPart].length) {
+              currentText += nameParts[currentPart][j];
+              setDisplayName(currentText + (currentPart < nameParts.length - 1 ? ' ' : ''));
               j++;
             } else {
-              currentLine++;
+              currentPart++;
               j = 0;
-              currentText += '\n';
-              if (currentLine >= nameLines.length) {
+              currentText += ' ';
+              if (currentPart >= nameParts.length) {
                 clearInterval(nameTyping);
               }
             }
@@ -105,7 +103,6 @@ export default function Hero() {
       }
     }, 100);
 
-    // Right side animation
     let k = 0;
     const rightTyping = setInterval(() => {
       if (k < imText.length) {
@@ -125,7 +122,7 @@ export default function Hero() {
 
   const startRoleAnimation = () => {
     let l = 0;
-    const currentRoleText = roles[currentRole];
+    const currentRoleText = roles[currentRole] + tagline;
     const roleTyping = setInterval(() => {
       if (l < currentRoleText.length) {
         setDisplayRole(currentRoleText.substring(0, l + 1));
@@ -149,9 +146,8 @@ export default function Hero() {
   return (
     <section 
       ref={containerRef}
-      className=" bottom-20 min-h-screen bg-black text-white flex items-center justify-center p-4 sm:p-8 relative overflow-hidden"
+      className="bottom-20 min-h-screen bg-black text-white flex items-center justify-center p-4 sm:p-8 relative overflow-hidden"
     >
-      {/* Confetti Particles */}
       {confetti.map((particle) => (
         <ConfettiParticle
           key={particle.id}
@@ -166,7 +162,6 @@ export default function Hero() {
       ))}
 
       <div className="w-full max-w-6xl flex flex-col md:flex-row items-center gap-6 md:gap-4">
-        {/* Left Text */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -183,8 +178,17 @@ export default function Hero() {
               {displayText.length === fullText.length ? '' : '|'}
             </motion.span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-[#FF0099] mt-2 font-mono tracking-tighter whitespace-pre-line">
-            {displayName}
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mt-2 font-mono tracking-tighter">
+            {displayName.split(' ').map((part, index) => (
+              <span key={index} className={
+                index === 0 ? 'text-[#d9f731]' :  // Muskan - yellow
+               // Parkash - purple
+                'text-[#FF0099]'                 // Narang - pink
+              }>
+                {part}
+                {index < displayName.split(' ').length - 1 ? ' ' : ''}
+              </span>
+            ))}
             <motion.span
               animate={{ opacity: [0, 1, 0] }}
               transition={{ duration: 0.8, repeat: displayName === fullName ? 0 : Infinity }}
@@ -195,7 +199,6 @@ export default function Hero() {
           </h1>
         </motion.div>
 
-        {/* Center Image */}
         <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 relative mx-4 order-3 md:order-none">
           <motion.div
             animate={{
@@ -236,7 +239,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Text */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -255,20 +257,27 @@ export default function Hero() {
               </motion.span>
             </div>
             <div className="text-2xl sm:text-3xl md:text-4xl font-semibold mt-2 font-mono tracking-tighter">
-              <span className={currentRole === 0 ? 'text-[#FF0099]' : 'text-[#d9f731]'}>
-                {displayRole}
+              <span className={currentRole === 0 ? 'text-[#FF0099]' : currentRole === 1 ? 'text-[#d9f731]' : 'text-[#7928CA]'}>
+                {displayRole.split(tagline)[0]}
+                {displayRole.includes(tagline) && (
+                  <>
+                    <span className="text-[0.9em]">, </span>
+                    <span className="text-[0.9em]">
+                      {tagline.substring(2)}
+                    </span>
+                  </>
+                )}
                 <motion.span
                   animate={{ opacity: [0, 1, 0] }}
-                  transition={{ duration: 0.8, repeat: displayRole.length === roles[currentRole].length ? 0 : Infinity }}
+                  transition={{ duration: 0.8, repeat: displayRole.length === (roles[currentRole] + tagline).length ? 0 : Infinity }}
                   className="ml-1"
                 >
-                  {displayRole.length === roles[currentRole].length ? '' : '|'}
+                  {displayRole.length === (roles[currentRole] + tagline).length ? '' : '|'}
                 </motion.span>
               </span>
             </div>
           </div>
 
-          {/* Social Icons */}
           <div className="flex flex-row justify-center md:flex-col md:items-end gap-6 md:gap-10 mt-6 md:mt-0 md:absolute md:bottom-7 md:right-8">
             <a 
               href="https://github.com/muskannarang12" 
@@ -276,7 +285,7 @@ export default function Hero() {
               rel="noopener noreferrer" 
               className="text-gray-300 hover:text-[#e64ca8] transition-colors"
             >
-              <FaGithub size={20} className="md:w-10" />
+              <FaGithub size={24} className="md:w-10 md:h-10" />
             </a>
             <a 
               href="https://www.linkedin.com/in/muskan-parkash-narang-514512269/" 
@@ -284,7 +293,7 @@ export default function Hero() {
               rel="noopener noreferrer" 
               className="text-gray-300 hover:text-[#FF0099] transition-colors"
             >
-              <FaLinkedin size={20} className="md:w-10" />
+              <FaLinkedin size={24} className="md:w-10 md:h-10" />
             </a>
             <a 
               href="https://www.instagram.com/muskan_narang12/profilecard/?igsh=eTJmZGE5eGpvNzRt" 
@@ -292,7 +301,7 @@ export default function Hero() {
               rel="noopener noreferrer" 
               className="text-gray-300 hover:text-[#FF0099] transition-colors"
             >
-              <FaInstagram size={20} className="md:w-10" />
+              <FaInstagram size={24} className="md:w-10 md:h-10" />
             </a>
             <a 
               href="https://www.fiverr.com/s/o86PPlV" 
@@ -300,11 +309,10 @@ export default function Hero() {
               rel="noopener noreferrer" 
               className="text-gray-300 hover:text-[#1DBF73] transition-colors"
             >
-              <SiFiverr size={20} className="md:w-10" />
+              <SiFiverr size={24} className="md:w-10 md:h-10" />
             </a>
           </div>
         </motion.div>
-        
       </div>
     </section>
   );

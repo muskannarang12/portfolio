@@ -37,12 +37,12 @@ export default function Navbar() {
       transition={{ delay: 0.5 }}
       className="fixed top-0 left-0 w-full z-50 px-4 sm:px-8 py-4 flex justify-between items-center text-white mix-blend-difference"
     >
-      {/* Desktop Navigation */}
-      <div className="hidden md:flex items-center gap-8">
+      {/* Desktop Navigation - Updated with larger text */}
+      <div className="hidden md:flex items-center gap-10">
         {navItems.map((item) => (
           <button
             key={item.id}
-            className="relative group text-sm uppercase tracking-widest font-bold"
+            className="relative group text-lg uppercase tracking-widest font-bold hover:text-[#FF0099] transition-colors duration-300"
             onMouseEnter={() => setHoveredItem(item.id)}
             onMouseLeave={() => setHoveredItem(null)}
             onClick={() => handleNavClick(item.id)}
@@ -70,11 +70,11 @@ export default function Navbar() {
         ))}
       </div>
 
-      {/* CV Download Button - Desktop */}
+      {/* CV Download Button - Desktop - Updated with larger size */}
       <motion.a
         href={cvUrl}
         download="Muskan_Narang_CV.pdf"
-        className="hidden md:flex items-center gap-2 bg-[#FF0099] hover:bg-[#e64ca8] text-white px-3 py-2 rounded-full text-sm uppercase tracking-widest font-bold transition-colors duration-300"
+        className="hidden md:flex items-center gap-2 bg-[#FF0099] hover:bg-[#e64ca8] text-white px-4 py-2 rounded-full text-base uppercase tracking-widest font-bold transition-colors duration-300"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -82,7 +82,7 @@ export default function Navbar() {
         <span>Download CV</span>
       </motion.a>
 
-      {/* Mobile CV Download Button - Top Right Corner */}
+      {/* Mobile CV Download Button */}
       <motion.a
         href={cvUrl}
         download="Muskan_Narang_CV.pdf"
