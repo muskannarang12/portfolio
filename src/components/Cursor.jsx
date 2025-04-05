@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 export default function Cursor() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   const springConfig = { damping: 20, stiffness: 300, mass: 0.5 };
@@ -11,7 +12,19 @@ export default function Cursor() {
   const springY = useSpring(cursorY, springConfig);
 
   useEffect(() => {
+    // Check if device supports hover (not touch)
+    const checkTouchDevice = () => {
+      setIsTouchDevice(
+        'ontouchstart' in window || 
+        navigator.maxTouchPoints > 0 || 
+        navigator.msMaxTouchPoints > 0
+      );
+    };
+
+    checkTouchDevice();
+
     const handleMouseMove = (e) => {
+      if (isTouchDevice) return;
       cursorX.set(e.clientX - 20);
       cursorY.set(e.clientY - 20);
       setIsVisible(true);
@@ -21,19 +34,21 @@ export default function Cursor() {
       setIsVisible(false);
     };
 
-    // Check if device supports hover (not touch)
-    if (window.matchMedia('(hover: hover)').matches) {
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('touchstart', handleTouchStart);
-    } else {
-      setIsVisible(false);
-    }
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('resize', checkTouchDevice);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('resize', checkTouchDevice);
     };
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, isTouchDevice]);
+
+  // Don't render anything if it's a touch device
+  if (isTouchDevice) {
+    return null;
+  }
 
   return (
     <motion.div
