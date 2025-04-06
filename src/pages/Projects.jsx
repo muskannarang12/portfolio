@@ -17,7 +17,7 @@ const ProjectsSection = () => {
       description: "Notes Vault, a full-stack task and notes management website designed for productivity and security.",
       tags: ["React", "Node.js", "Express", "MongoDB", "Full Stack", "responsive"],
       github: "https://github.com/muskannarang12/notes-vault",
-      linkedin: "https://www.linkedin.com/posts/your-linkedin-post",
+      linkedin: "https://www.linkedin.com/posts/muskan-parkash-narang-514512269_react-nodejs-mongodb-activity-7311326623943868416-m13U?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAEG_7WABW1qvJJoUrpZFrDV9iv2tJXUd1aw&utm_campaign=whatsapp",
       youtubeId: "LUdvOseXjfU" ,
       demo: "https://youtu.be/LUdvOseXjfU"
     },
@@ -26,7 +26,7 @@ const ProjectsSection = () => {
       description: "BlogSphere is a dynamic blogging platform where users can create, share, and explore blogs.",
       tags: ["React", "Node.js", "Express", "MongoDB", "Full Stack", "responsive"],
       github: "https://github.com/muskannarang12/Blogsphere",
-      linkedin: "https://www.linkedin.com/posts/your-linkedin-post",
+      linkedin: "https://www.linkedin.com/posts/muskan-parkash-narang-514512269_webdevelopment-react-nodejs-activity-7307467066423320576-Ujd9?utm_source=share&utm_medium=member_android&rcm=ACoAAEG_7WABW1qvJJoUrpZFrDV9iv2tJXUd1aw",
       youtubeId: "nkZi7XyJRC4" ,
       demo : "https://youtu.be/nkZi7XyJRC4"
     },
@@ -35,17 +35,18 @@ const ProjectsSection = () => {
       description: "Image search website with clean functionality and beautiful dark mode UI.",
       tags: ["Html", "CSS", "JavaScript", "Web Development", "API"],
       github: "https://github.com/muskannarang12/image_search",
-      linkedin: "https://www.linkedin.com/posts/your-linkedin-post",
+      linkedin: "https://www.linkedin.com/posts/muskan-parkash-narang-514512269_webdevelopment-codingjourney-frontend-activity-7313211484384182272-exCY?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAEG_7WABW1qvJJoUrpZFrDV9iv2tJXUd1aw&utm_campaign=whatsapp",
       youtubeId: "uW0hGW5NFI0" ,
       demo :"https://youtu.be/uW0hGW5NFI0" ,
     },
+   
     {
       title: "School Management System",
       description: "An integrated platform that simplifies school operations.",
       tags: ["Html", "CSS", "PHP", "JavaScript", "MySQL"],
       github: "https://github.com/muskannarang12/school_management_system",
-      youtubeId: "3D_T7vi0QCg" ,
-      demo: "https://youtu.be/3D_T7vi0QCg"
+      youtubeId: "asGUou0iAMg" ,
+      demo: "https://youtu.be/asGUou0iAMg"
     },
     {
       title: "LexiQuest",
