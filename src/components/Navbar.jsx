@@ -16,7 +16,7 @@ export default function Navbar() {
     { id: 'contact', label: 'CONTACT', path: '/contact' }
   ];
 
-  const cvUrl = '/videos/updated_cv.pdf';
+  const cvUrl = '/videos/muskan_cv.pdf';
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
