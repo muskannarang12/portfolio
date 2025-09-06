@@ -8,6 +8,7 @@ import About from './pages/About';
 import Skills from './pages/Skills';
 import Services from './pages/Services';
 import Projects from './pages/Projects';
+import Experience from './pages/Experience';
 import Cursor from './components/Cursor';
 
 function MainContent() {
@@ -23,17 +24,17 @@ function MainContent() {
   const skillsRef = useRef(null);
   const servicesRef = useRef(null);
   const contactRef = useRef(null);
-
+  const experienceRef = useRef(null);
   // Map paths to refs
-  const pathToRef = {
+ const pathToRef = {
     '/': homeRef,
     '/about': aboutRef,
     '/projects': projectsRef,
     '/skills': skillsRef,
     '/services': servicesRef,
+    '/experience': experienceRef,   // ✅ added
     '/contact': contactRef,
   };
-
   // Scroll to section when path changes (only for manual navigation)
   useEffect(() => {
     if (isManualScroll) {
@@ -57,14 +58,15 @@ function MainContent() {
 
   // Handle scroll events to update URL
   useEffect(() => {
-    const sections = [
-      { path: '/', ref: homeRef },
-      { path: '/about', ref: aboutRef },
-      { path: '/projects', ref: projectsRef },
-      { path: '/skills', ref: skillsRef },
-      { path: '/services', ref: servicesRef },
-      { path: '/contact', ref: contactRef },
-    ];
+     const sections = [
+    { path: '/', ref: homeRef },
+    { path: '/about', ref: aboutRef },
+    { path: '/projects', ref: projectsRef },
+    { path: '/skills', ref: skillsRef },
+    { path: '/services', ref: servicesRef },
+    { path: '/experience', ref: experienceRef }, // ✅ added
+    { path: '/contact', ref: contactRef },
+  ];
 
     const handleScroll = () => {
       if (!isManualScroll) return;
@@ -195,6 +197,18 @@ function MainContent() {
         >
           <Services />
         </motion.section>
+              {/* Experience Section */}
+        <motion.section
+          ref={experienceRef}
+          id="experience"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="min-h-screen snap-start"
+        >
+          <Experience />
+        </motion.section>
 
         {/* Contact Section */}
         <motion.section
@@ -208,6 +222,7 @@ function MainContent() {
         >
           <Contact />
         </motion.section>
+
       </div>
 
       

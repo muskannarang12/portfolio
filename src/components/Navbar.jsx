@@ -13,6 +13,7 @@ export default function Navbar() {
     { id: 'projects', label: 'PROJECTS', path: '/projects' },
     { id: 'skills', label: 'SKILLS', path: '/skills' },
     { id: 'services', label: 'SERVICES', path: '/services' }, 
+    {id: 'experience', label: 'EXPERIENCE', path: '/expereince' },
     { id: 'contact', label: 'CONTACT', path: '/contact' }
   ];
 

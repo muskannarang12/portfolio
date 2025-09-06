@@ -14,7 +14,7 @@ export default function About() {
   return (
     <section ref={ref} className="min-h-screen bg-black text-white flex items-center justify-center p-6 sm:p-8">
       <div className="w-full max-w-6xl flex flex-col md:flex-row items-center gap-6 md:gap-8">
-        {/* Animated Image - Centered on mobile, left on desktop */}
+        {/* Animated Image */}
         <motion.div 
           className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 relative flex-shrink-0"
           style={{ x }}
@@ -48,25 +48,27 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* About Me Content */}
+        {/* About Content */}
         <div className="flex-1 text-center md:text-left">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#FF0099] mb-4 md:mb-6 font-mono">
             About Me
           </h2>
           <div className="space-y-3 sm:space-y-4 text-gray-300 font-mono text-base sm:text-lg leading-relaxed">
             <p>
-              I'm <span className="text-[#FF0099]">Muskan Narang</span>, a passionate Computer Science student in my final semester at Sukkur IBA University. 
-              As a recipient of the prestigious 4-year Meritorious Scholarship, I've consistently demonstrated academic excellence throughout my studies.
+              I'm <span className="text-[#FF0099]">Muskan Narang</span>, a proud Computer Science graduate from 
+              <span className="text-[#d9f731]"> Sukkur IBA University</span>, Class of 2025. 
+              I successfully completed my BS in June 2025 with a <span className="text-[#d9f731]">4-year Meritorious Scholarship</span>, 
+              showcasing academic excellence throughout my journey.
             </p>
             <p>
-              I'm a <span className="text-[#d9f731]">Full Stack Developer</span> with expertise in modern web technologies. My journey in tech combines strong 
-              theoretical knowledge from my degree with practical experience building real-world applications. I specialize in creating responsive, 
-              user-friendly applications with clean, efficient code.
+              I'm a <span className="text-[#d9f731]">Full Stack Developer</span> specializing in the MERN stack, 
+              with hands-on experience building modern, responsive, and user-friendly applications. 
+              My expertise bridges frontend design, backend logic, and seamless deployment.
             </p>
             <p>
-              What sets me apart is my ability to combine technical skills with creative problem-solving. Whether working on academic projects or 
-              personal coding challenges, I approach each task with enthusiasm and attention to detail. My goal is to leverage my skills to build 
-              innovative solutions that make a real impact.
+              What sets me apart is my ability to combine technical depth with creative problem-solving. 
+              I’m passionate about building innovative, impactful solutions that not only solve problems but also 
+              deliver an engaging user experience.
             </p>
           </div>
         </div>
