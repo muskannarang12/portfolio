@@ -22,7 +22,7 @@ export default function Experience() {
           style={{ y }}
           className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#FF0099] mb-8 font-mono"
         >
-          Experience
+         My Experience
         </motion.h2>
 
         {/* Experience Card */}
